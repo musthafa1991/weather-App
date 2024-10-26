@@ -73,7 +73,7 @@ const WeatherCard = () => {
       <div className="bg-orange-100 p-6 rounded-3xl text-center shadow-lg flex-1 mb-4 md:mb-0">
         <div className="mb-4">
           <select
-            className="w-full p-2 rounded-md border-2 border-gray-300 bg-gray-300"
+            className="w-full max-w-full p-2 rounded-md border-2 border-gray-300 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={city}
             onChange={handleCityChange}
           >
@@ -84,6 +84,7 @@ const WeatherCard = () => {
             ))}
           </select>
         </div>
+
         {loading ? (
           <div>Loading...</div>
         ) : error ? (
@@ -129,7 +130,7 @@ const WeatherCard = () => {
       </div>
 
       {historicalData && historicalData.length > 0 && (
-        <div className="bg-orange-100 p-4 rounded-3xl  shadow-lg w-full md:w-80">
+        <div className="bg-orange-100 p-4 rounded-3xl shadow-lg w-full md:w-80 relative">
           <button
             className="absolute top-2 right-2 text-red-500 hover:text-red-700 font-bold text-lg"
             onClick={() => setHistoricalData([])}
