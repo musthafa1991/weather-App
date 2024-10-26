@@ -2,22 +2,30 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const weatherRoutes = require("./routes/weatherRoutes");
 
-const wheatherRoutes = require("./routes/wheatherRoutes");
+dotenv.config();
 
 const PORT = process.env.PORT || 4001;
 
 const app = express();
-app.use(express.json());
+
 app.use(cors());
-dotenv.config();
+app.use(express.json());
+
 connectDB();
 
 app.get("/", (req, res) => {
-  res.send(" yes wheather app data fetching");
+  res.status(200).send("Weather App: Data fetching service is running.");
 });
 
-app.use("/api/wheatherdata", wheatherRoutes);
+app.use("/api/weatherdata", weatherRoutes);
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Internal Server Error" });
+});
+
 app.listen(PORT, () => {
-  console.log(`Server started on Port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });

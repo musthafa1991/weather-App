@@ -63,7 +63,7 @@ Here's how you can add details about checking the API in your README file, inclu
 
 **Endpoint**: 
 ```
-GET http://localhost:4001/api/wheatherdata?city=Delhi&from=2024-09-24&to=2024-10-30
+GET http://localhost:4001/api/weatherdata?city=Delhi&from=2024-09-24&to=2024-10-30
 ```
 
 **Description**: 
@@ -76,7 +76,7 @@ This endpoint retrieves historical weather data for a specified city and date ra
 
 **Example Request**:
 ```bash
-curl -X GET "http://localhost:4001/api/wheatherdata?city=Delhi&from=2024-09-24&to=2024-10-30"
+curl -X GET "http://localhost:4001/api/weatherdata?city=Delhi&from=2024-09-24&to=2024-10-30"
 ```
 
 **Response**: 
@@ -88,7 +88,7 @@ The response will contain the historical weather data for the specified city and
 
 **Endpoint**: 
 ```
-POST http://localhost:4001/api/wheatherdata
+POST http://localhost:4001/api/weatherdata
 ```
 
 **Description**: 
@@ -99,7 +99,7 @@ This endpoint allows you to submit a city to get its current weather data.
 
 **Example Request**:
 ```bash
-curl -X POST "http://localhost:4001/api/wheatherdata" \
+curl -X POST "http://localhost:4001/api/weatherdata" \
 -H "Content-Type: application/json" \
 -d '{"city": "Delhi"}'
 ```
